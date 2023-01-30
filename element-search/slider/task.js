@@ -11,14 +11,16 @@ const switchSlider = (indexNextSlide) => {
   const currentSliderIndex = sliderItems.findIndex(slide => slide.classList.contains('slider__item_active'));
   sliderItems[currentSliderIndex].classList.remove('slider__item_active');
   dotItems[currentSliderIndex].classList.remove('slider__dot_active');
-
+  console.log(index);
   if (index >= sliderItems.length) {
     index = 0;
   }
+  
 
   if (index < 0) {
     index = sliderItems.length - 1;
   }
+ 
 
   sliderItems[index].classList.add('slider__item_active');
   dotItems[index].classList.add('slider__dot_active');
