@@ -75,6 +75,7 @@ body {
 }
 
 .product__add {
+  margin-bottom: 5px;
   background: green;
   padding: 10px 20px;
   color: #fff;
@@ -84,6 +85,14 @@ body {
 
 .product__add:hover {
   opacity: 0.8;
+}
+
+.product__delete {
+  background: green;
+  padding: 10px 20px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .product-shadow {
