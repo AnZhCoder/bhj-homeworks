@@ -34,6 +34,7 @@ const walkUp = (parent) => {
 
 	if (checkeds.length === 0) {
 		parentInput.indeterminate = false
+		parentInput.checked = false;
 	}
 
 	const next = parent.closest('.interests').closest('.interest');
