@@ -9,8 +9,18 @@ const showHint = (e) => {
 
 		` <div class="tooltip" style='left: ${left + 10}px; top: ${top + 20}px'>${title}</div>`
 	)
-	e.target.nextElementSibling.classList.toggle('tooltip_active');
-	console.log(left, top);
+	e.target.nextElementSibling.classList.add('tooltip_active');
+
+	const tooltips = document.querySelectorAll('.tooltip');
+
+	if (tooltips.length !== 0) {
+		tooltips.forEach(el => {
+
+			if (el !== e.target.nextElementSibling) {
+				el.classList.remove('tooltip_active')
+			}
+		})
+	}
 }
 
 
