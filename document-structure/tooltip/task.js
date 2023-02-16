@@ -2,14 +2,19 @@ const showHint = (e) => {
 	if (!e.target.classList.contains('has-tooltip')) {
 		return
 	}
+
 	e.preventDefault();
 	const title = e.target.getAttribute('title')
-	const { left, top } = e.target.getBoundingClientRect();
-	e.target.insertAdjacentHTML('afterend',
+	const { top } = e.target.getBoundingClientRect();
 
-		` <div class="tooltip" style='left: ${left + 10}px; top: ${top + 20}px'>${title}</div>`
-	)
-	e.target.nextElementSibling.classList.add('tooltip_active');
+	if (!e.target.nextElementSibling || !e.target.nextElementSibling.classList.contains('tooltip')) {
+		e.target.insertAdjacentHTML('afterend',
+
+			` <div class="tooltip tooltip_active" style='left: ${e.target.offsetLeft}px; top: ${top + e.target.offsetHeight}px'>${title}</div>`
+		);
+	} else {
+		e.target.nextElementSibling.classList.toggle('tooltip_active');
+	}
 
 	const tooltips = document.querySelectorAll('.tooltip');
 
@@ -23,8 +28,4 @@ const showHint = (e) => {
 	}
 }
 
-
 document.addEventListener('click', showHint);
-
-
-
